@@ -11,7 +11,10 @@ namespace Shotgun
             string playerName = Player.PlayerName();
             string cpuName = Cpu.CpuName();
             Console.WriteLine($"\nI ena hörnan bla bla bla");
+            Console.Beep();
             Console.ReadKey();
+
+            Music.Play();
         }
     }
 }
