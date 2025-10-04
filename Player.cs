@@ -6,15 +6,20 @@ namespace Shotgun
 {
     public class Player
     {
-        public string PlayerName { get; set; }
-        //public bool CPU { get; set; } - Välj om spelaren ska styras av en dator eller ej
+        public string Name { get; set; }
         public int Bullets { get; set; }
 
-        public Player(string playerName, bool cpu)
+        public Player(string name, bool cpu)
         {
-            PlayerName = playerName;
-            //CPU = cpu;
+            Name = name;
             Bullets = 0;
+        }
+
+        public static string PlayerName()
+        {
+            Console.Write($"Fyll i ditt namn: ");
+            string playerName = Console.ReadLine()!;
+            return playerName;
         }
 
     }
