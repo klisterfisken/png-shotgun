@@ -6,8 +6,13 @@ namespace Shotgun
     {
         public static string CpuName()
         {
-            //Random random = new Random(); - funktion för random namn?
-            string cpuName = "Donuthelloh";
+            Random random = new Random();
+            int botNumber = random.Next(1, 5);
+            string cpuName = "";
+            if (botNumber == 1) cpuName = "SPRAK";
+            else if (botNumber == 2) cpuName = "MARVIN";
+            else if (botNumber == 3) cpuName = "HAL";
+            else cpuName = "MATHILDA JUNKBOTTOM";
             return cpuName;
         }
 
