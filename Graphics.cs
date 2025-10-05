@@ -12,5 +12,30 @@ namespace Shotgun
             Console.WriteLine(@$" \_)) ||  ||  \\_//   ||   \\_|| \\_// || \||");
             Console.WriteLine("______________________________________________");
         }
+
+        // Skapa en meny för de olika dragen
+        public static void MoveMenu(int playerAmmo)
+        {
+            string[] moveMenu = new string[]
+            {
+                "[1] Skjuta",
+                "[2] Ladda",
+                "[3] Blocka",
+                "[4] Shotgun"
+            };
+            for (int i = 0; i < moveMenu.Length; i++)
+            {
+                if (playerAmmo == 0 && i == 0)
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkGray;
+                }
+                else if (playerAmmo < 3 && i == 3)
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkGray;
+                }
+                else Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine(moveMenu[i]);
+            }
+        }
     }
 }
