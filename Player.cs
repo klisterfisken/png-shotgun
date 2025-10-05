@@ -9,7 +9,7 @@ namespace Shotgun
         public string Name { get; set; }
         public int Bullets { get; set; }
 
-        public Player(string name, bool cpu)
+        public Player(string name)
         {
             Name = name;
             Bullets = 0;
