@@ -36,6 +36,7 @@ namespace Shotgun
                 else Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine(moveMenu[i]);
             }
+            Console.ForegroundColor = ConsoleColor.White;
         }
     }
 }
