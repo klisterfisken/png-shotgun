@@ -14,7 +14,7 @@ namespace Shotgun
         }
 
         // Skapa en meny för de olika dragen
-        public static void MoveMenu(int playerAmmo)
+        public static int MoveMenu(int playerAmmo)
         {
             string[] moveMenu = new string[]
             {
@@ -37,6 +37,10 @@ namespace Shotgun
                 Console.WriteLine(moveMenu[i]);
             }
             Console.ForegroundColor = ConsoleColor.White;
+            int moveChoice = 0;
+            Console.Write("\nVälj ditt drag: ");
+            moveChoice = Convert.ToInt32(Console.ReadLine());
+            return moveChoice;
         }
     }
 }
