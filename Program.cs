@@ -6,14 +6,16 @@ namespace Shotgun
     {
         static void Main()
         {
+            Console.Clear();
             Graphics.Header();
-            Console.WriteLine("\nDags att spela shotgun!");
             Music.Play();
+            Console.WriteLine("\nDags att spela shotgun!");
             string playerName = Player.PlayerName();
             string cpuName = Cpu.CpuName();
             Player player = new Player(playerName);
             Player cpu = new Player(cpuName);
-            Console.WriteLine($"\nI ena hörnan bla bla bla");
+            Console.WriteLine($"\n{player.Name}, ammo: {player.Ammo}");
+            Console.WriteLine($"{cpu.Name}, ammo: {cpu.Ammo}");
             Console.ReadKey();
 
         }
