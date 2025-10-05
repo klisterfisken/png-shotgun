@@ -10,7 +10,7 @@ namespace Shotgun
             Graphics.Header();
             Music.Play();
             Console.WriteLine("\nDags att spela shotgun!");
-            string playerName = Player.PlayerName();
+            string playerName = Player.PlayerName().ToUpper();
             string cpuName = Cpu.CpuName();
             Player player = new Player(playerName);
             Player cpu = new Player(cpuName);
@@ -18,6 +18,19 @@ namespace Shotgun
             Console.WriteLine($"{cpu.Name}, ammo: {cpu.Ammo}");
             Console.ReadKey();
 
+        }
+
+        // Skapa en meny för de olika dragen
+        static string[] MoveMenu()
+        {
+            string[] moveMenu = new string[]
+            {
+                "[1] Skjuta",
+                "[2] Ladda",
+                "[3] Blocka",
+                "[4] Shotgun"
+            };
+            return moveMenu;
         }
     }
 }
