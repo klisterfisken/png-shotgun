@@ -10,5 +10,17 @@ namespace Shotgun
             string cpuName = "Donuthelloh";
             return cpuName;
         }
+
+        public string CpuMove(int cpuAmmo, int playerAmmo)
+        {
+            string cpuMove = "";
+            return cpuMove;
+        }
+
+        public int MoveCalculator()
+        {
+            int move = 0;
+            return move;
+        }
     }
 }
