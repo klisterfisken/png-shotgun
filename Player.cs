@@ -7,12 +7,12 @@ namespace Shotgun
     public class Player
     {
         public string Name { get; set; }
-        public int Bullets { get; set; }
+        public int Ammo { get; set; }
 
         public Player(string name)
         {
             Name = name;
-            Bullets = 0;
+            Ammo = 0;
         }
 
         public static string PlayerName()
