@@ -57,6 +57,20 @@ namespace Shotgun
         {
             string[] cpuMove = new string[] { "SKJUTA", "LADDA", "BLOCKA", "SHOTGUN" };
             int chosenMove = 0;
+            Random random = new Random();
+            int totalWeight = 0;
+            foreach (int weight in weights) totalWeight += weight;
+            int randomChoice = random.Next(1, totalWeight + 1);
+            int choiceWeight = 0;
+            for (int i = 0; i < weights.Length; i++)
+            {
+                choiceWeight += weights[i];
+                if (randomChoice <= choiceWeight)
+                {
+                    chosenMove = i;
+                    break;
+                }
+            }
             return cpuMove[chosenMove];
         }
     }
