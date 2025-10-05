@@ -11,12 +11,6 @@ namespace Shotgun
             return cpuName;
         }
 
-        public string CpuMove(int move)
-        {
-            string cpuMove = "";
-            return cpuMove;
-        }
-
         // Välj scenario baserat på ammo
         public int MoveCalculator(int cpuAmmo, int playerAmmo)
         {
@@ -42,19 +36,28 @@ namespace Shotgun
         }
 
         // Ange beslutens vikt baserat på scenario 
-        public double[] CalculateWeight(int move)
+        public int[] CalculateWeight(int move)
         {
             // Array med vikter för dragen skjuta, ladda, blocka, shotgun
-            double[] weights = new double[] { 0.0, 0.0, 0.0, 0.0 };
-            if (move == 1) weights = new double[] { 0.0, 2.5, 0.25, 0.0 };
-            if (move == 2) weights = new double[] { 0.0, 1.0, 1.0, 0.0 };
-            if (move == 3) weights = new double[] { 0.0, 2.5, 1.0, 0.0 };
-            if (move == 4) weights = new double[] { 1.0, 1.0, 0.25, 0.0 };
-            if (move == 5) weights = new double[] { 1.0, 1.0, 1.0, 0.0 };
-            if (move == 6) weights = new double[] { 1.0, 2.5, 0.25, 0.0 };
-            if (move == 7) weights = new double[] { 1.0, 2.5, 1.00, 0.0 };
-            if (move == 8) weights = new double[] { 0.25, 0.25, 0.25, 2.5 };
+            // Otillåten = 0, Dum = 25, Neutral = 100, Smart = 250
+            int[] weights = new int[] { 0, 0, 0, 0 };
+            if (move == 1) weights = new int[] { 0, 250, 25, 0 };
+            if (move == 2) weights = new int[] { 0, 100, 100, 0 };
+            if (move == 3) weights = new int[] { 0, 250, 100, 0 };
+            if (move == 4) weights = new int[] { 100, 100, 25, 0 };
+            if (move == 5) weights = new int[] { 100, 100, 100, 0 };
+            if (move == 6) weights = new int[] { 100, 250, 25, 0 };
+            if (move == 7) weights = new int[] { 100, 250, 100, 0 };
+            if (move == 8) weights = new int[] { 25, 25, 25, 250 };
             return weights;
+        }
+
+        // Slumpa fram ett drag baserat på vikt
+        public string CpuMove(int[] weights)
+        {
+            string[] cpuMove = new string[] { "SKJUTA", "LADDA", "BLOCKA", "SHOTGUN" };
+            int chosenMove = 0;
+            return cpuMove[chosenMove];
         }
     }
 }
