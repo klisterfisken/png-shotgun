@@ -17,7 +17,7 @@ namespace Shotgun
         }
 
         // Välj scenario baserat på ammo
-        public int MoveCalculator(int cpuAmmo, int playerAmmo)
+        public static int MoveCalculator(int cpuAmmo, int playerAmmo)
         {
             int move = 0;
             if (cpuAmmo == 0)
@@ -41,7 +41,7 @@ namespace Shotgun
         }
 
         // Ange beslutens vikt baserat på scenario 
-        public int[] CalculateWeight(int move)
+        public static int[] CalculateWeight(int move)
         {
             // Array med vikter för dragen skjuta, ladda, blocka, shotgun
             // Otillåten = 0, Dum = 25, Neutral = 100, Smart = 250
@@ -58,7 +58,7 @@ namespace Shotgun
         }
 
         // Slumpa fram ett drag baserat på vikt
-        public string CpuMove(int[] weights)
+        public static string CpuMoveChoice(int[] weights)
         {
             string[] cpuMove = new string[] { "SKJUTA", "LADDA", "BLOCKA", "SHOTGUN" };
             int chosenMove = 0;
@@ -77,6 +77,12 @@ namespace Shotgun
                 }
             }
             return cpuMove[chosenMove];
+        }
+
+        // Använd metoderna för att göra ett drag
+        public static string CpuMove(int cpuAmmo, int playerAmmo)
+        {
+            return CpuMoveChoice(CalculateWeight(MoveCalculator(cpuAmmo, playerAmmo)));
         }
     }
 }
