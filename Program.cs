@@ -11,28 +11,34 @@ namespace Shotgun
             Graphics.Header();
             Music.Play();
             Console.WriteLine("\nDags att spela shotgun!");
-            Console.Write("[ FORTSÄTT ]");
+            Console.Write("[FORTSÄTT]");
             Console.ReadKey();
             string playerName = Player.PlayerName().ToUpper();
             string cpuName = Cpu.CpuName();
             Player player = new Player(playerName);
             Player cpu = new Player(cpuName);
-            // while (power)
-            // {
-            //     Console.Clear();
-            //     Graphics.Header();
-            //     Console.WriteLine($"\n{player.Name}, ammo: {player.Ammo}");
-            //     Console.WriteLine($"{cpu.Name}, ammo: {cpu.Ammo}\n");
-            //     int moveChoice = Graphics.MoveMenu(player.Ammo);
-            //     Console.WriteLine($"Du har valt alternativ {moveChoice}");
-            //     Console.ReadKey();
-            //     break;
-            // }
+            while (power)
+            {
+                Console.Clear();
+                Graphics.Header();
+                Console.WriteLine($"\n{player.Name}, ammo: {player.Ammo}");
+                Console.WriteLine($"{cpu.Name}, ammo: {cpu.Ammo}\n");
+                string cpuMove = Cpu.CpuMove(cpu.Ammo, player.Ammo);
+                Console.WriteLine($"{cpu.Name} har valt sitt drag.\nVilket drag väljer du?\n");
+                string moveChoice = Graphics.MoveMenu(player.Ammo);
+                Console.WriteLine($"Du har valt att {moveChoice}");
+                Console.Write($"{cpu.Name} valde att");
+                for (int i = 0; i < 3; i++)
+                {
+                    Thread.Sleep(300);
+                    Console.Write(".");
+                }
+                Thread.Sleep(1100);
+                Console.WriteLine($" {cpuMove}!");
+                Console.ReadKey();
+                break;
+            }
 
-            string cpuMove = Cpu.CpuMove(cpu.Ammo, player.Ammo);
-            Console.Write($"{cpu.Name} väljer att... ");
-            Thread.Sleep(1000);
-            Console.WriteLine($"{cpuMove}!");
         }
 
     }
