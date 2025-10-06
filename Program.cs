@@ -17,18 +17,22 @@ namespace Shotgun
             string cpuName = Cpu.CpuName();
             Player player = new Player(playerName);
             Player cpu = new Player(cpuName);
-            while (power)
-            {
-                Console.Clear();
-                Graphics.Header();
-                Console.WriteLine($"\n{player.Name}, ammo: {player.Ammo}");
-                Console.WriteLine($"{cpu.Name}, ammo: {cpu.Ammo}\n");
-                int moveChoice = Graphics.MoveMenu(player.Ammo);
-                Console.WriteLine($"Du har valt alternativ {moveChoice}");
-                Console.ReadKey();
-                break;
-            }
+            // while (power)
+            // {
+            //     Console.Clear();
+            //     Graphics.Header();
+            //     Console.WriteLine($"\n{player.Name}, ammo: {player.Ammo}");
+            //     Console.WriteLine($"{cpu.Name}, ammo: {cpu.Ammo}\n");
+            //     int moveChoice = Graphics.MoveMenu(player.Ammo);
+            //     Console.WriteLine($"Du har valt alternativ {moveChoice}");
+            //     Console.ReadKey();
+            //     break;
+            // }
 
+            string cpuMove = Cpu.CpuMove(cpu.Ammo, player.Ammo);
+            Console.Write($"{cpu.Name} väljer att... ");
+            Thread.Sleep(1000);
+            Console.WriteLine($"{cpuMove}!");
         }
 
     }
