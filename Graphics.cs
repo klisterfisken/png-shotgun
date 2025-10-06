@@ -14,7 +14,7 @@ namespace Shotgun
         }
 
         // Skapa en meny för de olika dragen
-        public static int MoveMenu(int playerAmmo)
+        public static string MoveMenu(int playerAmmo)
         {
             string[] moveMenu = new string[]
             {
@@ -37,9 +37,13 @@ namespace Shotgun
                 Console.WriteLine(moveMenu[i]);
             }
             Console.ForegroundColor = ConsoleColor.White;
-            int moveChoice = 0;
+            string moveChoice = "";
             Console.Write("\nVälj ditt drag: ");
-            moveChoice = Convert.ToInt32(Console.ReadLine());
+            moveChoice = Console.ReadLine()!;
+            if (moveChoice == "1") moveChoice = "SKJUTA";
+            else if (moveChoice == "2") moveChoice = "LADDA";
+            else if (moveChoice == "3") moveChoice = "BLOCKA";
+            else if (moveChoice == "4") moveChoice = "SHOTGUN";
             return moveChoice;
         }
     }
