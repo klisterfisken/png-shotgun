@@ -60,7 +60,7 @@ namespace Shotgun
         // Slumpa fram ett drag baserat på vikt
         public static string CpuMoveChoice(int[] weights)
         {
-            string[] cpuMove = new string[] { "SKJUTA", "LADDA", "BLOCKA", "SHOTGUN" };
+            string[] cpuMove = new string[] { "att SKJUTA", "att LADDA", "att BLOCKA", "SHOTGUN" };
             int chosenMove = 0;
             Random random = new Random();
             int totalWeight = 0;
