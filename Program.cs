@@ -39,9 +39,12 @@ namespace Shotgun
                 // Skicka till extern metod med parametrarna player + cpu
                 string resolution = Player.MoveResolution(player.Ammo, cpu.Ammo, moveChoice, cpuMove);
 
-                Console.WriteLine($"{resolution} Vill du spela igen? J/N");
-                string playAgain = Console.ReadLine();
-                if (playAgain == "n" || playAgain == "N") power = false;
+                if (resolution != "")
+                {
+                    Console.WriteLine($"{resolution} Vill du spela igen? J/N");
+                    string playAgain = Console.ReadLine();
+                    if (playAgain == "n" || playAgain == "N") power = false;
+                }
                 Console.ReadKey();
             }
 
