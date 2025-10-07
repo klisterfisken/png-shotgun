@@ -82,7 +82,6 @@ namespace Shotgun
                     {
                         player = new Player(playerName);
                         cpu = new Player(Cpu.CpuName());
-                        //cpuName = Cpu.CpuName();
                         resolution.message = "";
                         Music.Play();
                         Console.Clear();
