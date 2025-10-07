@@ -44,6 +44,7 @@ namespace Shotgun
             else if (moveChoice == "2") moveChoice = "att LADDA";
             else if (moveChoice == "3") moveChoice = "att BLOCKA";
             else if (moveChoice == "4") moveChoice = "SHOTGUN";
+            else moveChoice = "";
             return moveChoice;
         }
     }
