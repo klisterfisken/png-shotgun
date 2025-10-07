@@ -27,8 +27,8 @@ namespace Shotgun
                 string cpuMove = Cpu.CpuMove(cpu.Ammo, player.Ammo);
                 Console.WriteLine($"{cpu.Name} har valt sitt drag.\nVilket drag väljer du?\n");
                 string moveChoice = Graphics.MoveMenu(player.Ammo);
-                Console.WriteLine($"Du har valt att {moveChoice}");
-                Console.Write($"{cpu.Name} valde att");
+                Console.WriteLine($"Du har valt {moveChoice}");
+                Console.Write($"{cpu.Name} valde ");
                 for (int i = 0; i < 3; i++)
                 {
                     Thread.Sleep(300);
@@ -53,6 +53,9 @@ namespace Shotgun
                     {
                         player = new Player(playerName);
                         cpu = new Player(Cpu.CpuName());
+                        resolution.message = "";
+                        Console.Clear();
+                        Music.Play();
                     }
                 }
                 Console.ReadKey();
