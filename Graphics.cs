@@ -40,9 +40,9 @@ namespace Shotgun
             string moveChoice = "";
             Console.Write("\nVälj ditt drag: ");
             moveChoice = Console.ReadLine()!;
-            if (moveChoice == "1") moveChoice = "SKJUTA";
-            else if (moveChoice == "2") moveChoice = "LADDA";
-            else if (moveChoice == "3") moveChoice = "BLOCKA";
+            if (moveChoice == "1") moveChoice = "att SKJUTA";
+            else if (moveChoice == "2") moveChoice = "att LADDA";
+            else if (moveChoice == "3") moveChoice = "att BLOCKA";
             else if (moveChoice == "4") moveChoice = "SHOTGUN";
             return moveChoice;
         }
