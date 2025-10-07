@@ -8,6 +8,7 @@ namespace Shotgun
         {
             bool power = true;
             Console.Clear();
+            Console.ForegroundColor = ConsoleColor.White;
             Graphics.Header();
             Music.Play();
             Console.WriteLine("\nDags att spela shotgun!");
