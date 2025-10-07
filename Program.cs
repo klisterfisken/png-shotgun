@@ -46,13 +46,13 @@ namespace Shotgun
 
                 if (resolution.message != "")
                 {
-                    Console.WriteLine($"{resolution.message} Vill du spela igen? J/N");
+                    Console.Write($"\n{resolution.message} Vill du spela igen? J/N ");
                     string? playAgain = Console.ReadLine();
                     if (playAgain == "n" || playAgain == "N") power = false;
                     else
                     {
-                        player.Ammo = 0;
-                        cpu.Ammo = 0;
+                        player = new Player(playerName);
+                        cpu = new Player(Cpu.CpuName());
                     }
                 }
                 Console.ReadKey();
