@@ -12,12 +12,13 @@ namespace Shotgun
             Graphics.Header();
             Music.Play();
             Console.WriteLine("\nDags att spela shotgun!");
-            Console.Write("[FORTSÄTT]");
-            Console.ReadKey();
             string playerName = Player.PlayerName().ToUpper();
             string cpuName = Cpu.CpuName();
             Player player = new Player(playerName);
             Player cpu = new Player(cpuName);
+            Console.WriteLine($"\nHej {playerName}!\nDu kommer att duellera mot vår android {cpuName}.");
+            Console.Write("[ OK ]");
+            Console.ReadKey();
             while (power)
             {
                 Console.Clear();
@@ -27,8 +28,29 @@ namespace Shotgun
                 string cpuMove = Cpu.CpuMove(cpu.Ammo, player.Ammo);
                 Console.WriteLine($"{cpu.Name} har valt sitt drag.\nVilket drag väljer du?\n");
                 string moveChoice = Graphics.MoveMenu(player.Ammo);
+
+                if (moveChoice == "")
+                {
+                    Console.Write($"Ogiltigt val. Välj ett annat drag.\t[ OK ]");
+                    Console.ReadLine();
+                    goto Restart;
+                }
+                if (player.Ammo == 0 && (moveChoice == "att SKJUTA" || moveChoice == "SHOTGUN"))
+                {
+                    Console.Write($"Du behöver ammo för {moveChoice}. Välj ett annat drag.\t[ OK ]");
+                    Console.ReadLine();
+                    goto Restart;
+                }
+                if (player.Ammo < 3 && moveChoice == "SHOTGUN")
+                {
+                    Console.Write($"Du behöver 3 ammo för {moveChoice}. Välj ett annat drag.\t[ OK ]");
+                    Console.ReadLine();
+                    goto Restart;
+                }
+
                 Console.WriteLine($"Du har valt {moveChoice}");
                 Console.Write($"{cpu.Name} valde ");
+
                 for (int i = 0; i < 3; i++)
                 {
                     Thread.Sleep(300);
@@ -48,7 +70,11 @@ namespace Shotgun
                 {
                     Console.Write($"\n{resolution.message} Vill du spela igen? J/N ");
                     string? playAgain = Console.ReadLine();
-                    if (playAgain == "n" || playAgain == "N") power = false;
+                    if (playAgain == "n" || playAgain == "N")
+                    {
+                        power = false;
+                        goto Restart;
+                    }
                     else
                     {
                         player = new Player(playerName);
