@@ -22,7 +22,7 @@ namespace Shotgun
             return playerName;
         }
 
-        public static string MoveResolution(int playerAmmo, int cpuAmmo, string playerMove, string cpuMove)
+        public static (string message, int playerAmmo, int cpuAmmo) MoveResolution(int playerAmmo, int cpuAmmo, string playerMove, string cpuMove)
         {
             string message = "";
             if (playerMove == "SKJUTA")
@@ -41,7 +41,7 @@ namespace Shotgun
                 if (cpuMove != "SHOTGUN") message = "Du har vunnit!";
             }
             else if (cpuMove == "SHOTGUN") message = "Du förlorade!";
-            return message;
+            return (message, playerAmmo, cpuAmmo);
         }
 
     }
