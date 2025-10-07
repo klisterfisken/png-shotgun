@@ -16,7 +16,10 @@ namespace Shotgun
             string cpuName = Cpu.CpuName();
             Player player = new Player(playerName);
             Player cpu = new Player(cpuName);
-            Console.WriteLine($"\nHej {playerName}!\nDu kommer att duellera mot vår android {cpuName}.");
+        NewMatch:
+            Console.Clear();
+            Graphics.Header();
+            Console.WriteLine($"\nHej {playerName}!\nDu kommer att duellera mot vår android {cpu.Name}.");
             Console.Write("[ OK ]");
             Console.ReadKey();
             while (power)
@@ -31,19 +34,19 @@ namespace Shotgun
 
                 if (moveChoice == "")
                 {
-                    Console.Write($"Ogiltigt val. Välj ett annat drag.\t[ OK ]");
+                    Console.Write($"Ogiltigt val. Välj ett annat drag.\n[ OK ]");
                     Console.ReadLine();
                     goto Restart;
                 }
                 if (player.Ammo == 0 && (moveChoice == "att SKJUTA" || moveChoice == "SHOTGUN"))
                 {
-                    Console.Write($"Du behöver ammo för {moveChoice}. Välj ett annat drag.\t[ OK ]");
+                    Console.Write($"Du behöver ammo för {moveChoice}. Välj ett annat drag.\n[ OK ]");
                     Console.ReadLine();
                     goto Restart;
                 }
                 if (player.Ammo < 3 && moveChoice == "SHOTGUN")
                 {
-                    Console.Write($"Du behöver 3 ammo för {moveChoice}. Välj ett annat drag.\t[ OK ]");
+                    Console.Write($"Du behöver 3 ammo för {moveChoice}. Välj ett annat drag.\n[ OK ]");
                     Console.ReadLine();
                     goto Restart;
                 }
@@ -79,12 +82,14 @@ namespace Shotgun
                     {
                         player = new Player(playerName);
                         cpu = new Player(Cpu.CpuName());
+                        //cpuName = Cpu.CpuName();
                         resolution.message = "";
                         Music.Play();
                         Console.Clear();
-                        goto Restart;
+                        goto NewMatch;
                     }
                 }
+                Console.Write("[ OK ]");
                 Console.ReadKey();
             Restart:;
             }
