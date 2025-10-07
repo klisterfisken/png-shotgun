@@ -42,7 +42,7 @@ namespace Shotgun
                 if (resolution != "")
                 {
                     Console.WriteLine($"{resolution} Vill du spela igen? J/N");
-                    string playAgain = Console.ReadLine();
+                    string? playAgain = Console.ReadLine();
                     if (playAgain == "n" || playAgain == "N") power = false;
                 }
                 Console.ReadKey();
