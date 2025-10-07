@@ -25,6 +25,9 @@ namespace Shotgun
         public static (string message, int playerAmmo, int cpuAmmo) MoveResolution(int playerAmmo, int cpuAmmo, string playerMove, string cpuMove)
         {
             string message = "";
+            if (cpuMove == "SKJUTA") cpuAmmo--;
+            else if (cpuMove == "LADDA") cpuAmmo++;
+            else if (cpuMove == "SHOTGUN") cpuAmmo += -3;
             if (playerMove == "SKJUTA")
             {
                 playerAmmo--;
@@ -37,7 +40,7 @@ namespace Shotgun
             }
             else if (playerMove == "SHOTGUN")
             {
-                playerAmmo = playerAmmo - 3;
+                playerAmmo += -3;
                 if (cpuMove != "SHOTGUN") message = "Du har vunnit!";
             }
             else if (cpuMove == "SHOTGUN") message = "Du förlorade!";
