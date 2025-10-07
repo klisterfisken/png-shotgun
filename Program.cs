@@ -54,11 +54,13 @@ namespace Shotgun
                         player = new Player(playerName);
                         cpu = new Player(Cpu.CpuName());
                         resolution.message = "";
-                        Console.Clear();
                         Music.Play();
+                        Console.Clear();
+                        goto Restart;
                     }
                 }
                 Console.ReadKey();
+            Restart:;
             }
 
         }
