@@ -4,7 +4,7 @@ namespace Shotgun
 {
     class Graphics
     {
-        // Skriv ut en ASCII-header
+        // Print out ASCII header
         public static void Header()
         {
             Console.WriteLine(@$"  __  __  __   ___  ______  ___  __ __ __  __");
@@ -14,7 +14,7 @@ namespace Shotgun
             Console.WriteLine("______________________________________________");
         }
 
-        // Skapa en meny för de olika dragen
+        // Create menu for the different moves
         public static string MoveMenu(int playerAmmo)
         {
             string[] moveMenu = new string[]
@@ -25,7 +25,7 @@ namespace Shotgun
                 "[4] Shotgun"
             };
 
-            // Gråmarkera ogiltiga drag
+            // Mark invalid moves with gray
             for (int i = 0; i < moveMenu.Length; i++)
             {
                 if (playerAmmo == 0 && i == 0)
@@ -39,15 +39,15 @@ namespace Shotgun
                 else Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine(moveMenu[i]);
             }
-            // Sätt tillbaka vit som textfärg
+            // Change back text color to white
             Console.ForegroundColor = ConsoleColor.White;
 
-            // Läs in svar från användaren
+            // Read input from user
             string moveChoice = "";
             Console.Write("\nVälj ditt drag: ");
             moveChoice = Console.ReadLine()!;
 
-            // Skriv ut drag beroende på val
+            // Print move depending on input
             switch (moveChoice)
             {
                 case "1":
