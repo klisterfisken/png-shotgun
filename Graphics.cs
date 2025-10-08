@@ -4,6 +4,7 @@ namespace Shotgun
 {
     class Graphics
     {
+        // Skriv ut en ASCII-header
         public static void Header()
         {
             Console.WriteLine(@$"  __  __  __   ___  ______  ___  __ __ __  __");
@@ -23,6 +24,8 @@ namespace Shotgun
                 "[3] Blocka",
                 "[4] Shotgun"
             };
+
+            // Gråmarkera ogiltiga drag
             for (int i = 0; i < moveMenu.Length; i++)
             {
                 if (playerAmmo == 0 && i == 0)
@@ -36,15 +39,33 @@ namespace Shotgun
                 else Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine(moveMenu[i]);
             }
+            // Sätt tillbaka vit som textfärg
             Console.ForegroundColor = ConsoleColor.White;
+
+            // Läs in svar från användaren
             string moveChoice = "";
             Console.Write("\nVälj ditt drag: ");
             moveChoice = Console.ReadLine()!;
-            if (moveChoice == "1") moveChoice = "att SKJUTA";
-            else if (moveChoice == "2") moveChoice = "att LADDA";
-            else if (moveChoice == "3") moveChoice = "att BLOCKA";
-            else if (moveChoice == "4") moveChoice = "SHOTGUN";
-            else moveChoice = "";
+
+            // Skriv ut drag beroende på val
+            switch (moveChoice)
+            {
+                case "1":
+                    moveChoice = "att SKJUTA";
+                    break;
+                case "2":
+                    moveChoice = "att LADDA";
+                    break;
+                case "3":
+                    moveChoice = "att BLOCKA";
+                    break;
+                case "4":
+                    moveChoice = "SHOTGUN";
+                    break;
+                default:
+                    moveChoice = "";
+                    break;
+            }
             return moveChoice;
         }
     }
