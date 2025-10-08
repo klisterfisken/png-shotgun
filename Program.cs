@@ -31,7 +31,6 @@ namespace Shotgun
             // Repeat until player closes game
             while (power)
             {
-            Restart:;
                 Console.Clear();
                 Graphics.Header();
 
@@ -104,6 +103,7 @@ namespace Shotgun
                 }
                 Console.Write("[ OK ]");
                 Console.ReadKey();
+            Restart:;
             }
         }
     }
