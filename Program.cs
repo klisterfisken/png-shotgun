@@ -65,7 +65,7 @@ namespace Shotgun
                 }
 
                 Console.WriteLine($"Du har valt {moveChoice}");
-                Console.Write($"{cpu.Name} valde ");
+                Console.Write($"{cpu.Name} valde");
 
                 // Print thinking animation
                 for (int i = 0; i < 3; i++)
