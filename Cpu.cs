@@ -4,6 +4,7 @@ namespace Shotgun
 {
     class Cpu
     {
+        // Return one robot name by random
         public static string CpuName()
         {
             Random random = new Random();
@@ -16,7 +17,7 @@ namespace Shotgun
             return cpuName;
         }
 
-        // Välj scenario baserat på ammo
+        // AI: Choose scenario based on ammo
         public static int MoveCalculator(int cpuAmmo, int playerAmmo)
         {
             int move = 0;
@@ -40,11 +41,11 @@ namespace Shotgun
             return move;
         }
 
-        // Ange beslutens vikt baserat på scenario 
+        // AI: Set choice weight based on scenario 
         public static int[] CalculateWeight(int move)
         {
-            // Array med vikter för dragen skjuta, ladda, blocka, shotgun
-            // Otillåten = 0, Dum = 25, Neutral = 100, Smart = 250
+            // Arrays with weights for move 'skjuta', 'ladda', 'blocka', 'shotgun'
+            // Invalid = 0, Stupid = 25, Neutral = 100, Smart = 250
             int[] weights = new int[] { 0, 0, 0, 0 };
             if (move == 1) weights = new int[] { 0, 250, 25, 0 };
             if (move == 2) weights = new int[] { 0, 100, 100, 0 };
@@ -57,7 +58,7 @@ namespace Shotgun
             return weights;
         }
 
-        // Slumpa fram ett drag baserat på vikt
+        // AI: Choose a random move based on weight
         public static string CpuMoveChoice(int[] weights)
         {
             string[] cpuMove = new string[] { "att SKJUTA", "att LADDA", "att BLOCKA", "SHOTGUN" };
@@ -79,7 +80,7 @@ namespace Shotgun
             return cpuMove[chosenMove];
         }
 
-        // Använd metoderna för att göra ett drag
+        // AI: Use methods to make a move
         public static string CpuMove(int cpuAmmo, int playerAmmo)
         {
             return CpuMoveChoice(CalculateWeight(MoveCalculator(cpuAmmo, playerAmmo)));
