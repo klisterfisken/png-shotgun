@@ -105,9 +105,6 @@ namespace Shotgun
                 Console.Write("[ OK ]");
                 Console.ReadKey();
             }
-
         }
-
-
     }
 }
