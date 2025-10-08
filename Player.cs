@@ -6,19 +6,24 @@ namespace Shotgun
 {
     public class Player
     {
+        // Define player properties
         public string Name { get; set; }
         public int Ammo { get; set; }
 
+        // Construct Player object
         public Player(string name)
         {
             Name = name;
             Ammo = 0;
         }
 
+        // Read and save namn from input
+        // Set name to 'Okänd' if no input
         public static string PlayerName()
         {
             Console.Write($"Fyll i ditt namn: ");
             string playerName = Console.ReadLine()!;
+            if (string.IsNullOrWhiteSpace(playerName)) playerName = "Okänd";
             return playerName;
         }
 
