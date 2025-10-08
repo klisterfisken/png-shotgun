@@ -22,18 +22,23 @@ namespace Shotgun
         public static string PlayerName()
         {
             Console.Write($"Fyll i ditt namn: ");
-            string playerName = Console.ReadLine()!;
+            string? playerName = Console.ReadLine();
             if (string.IsNullOrWhiteSpace(playerName)) playerName = "Okänd";
             return playerName;
         }
 
+        // Fetch string message and updated ammo, due to resolution
+        // Method returns tuple of data elements
         public static (string message, int playerAmmo, int cpuAmmo) MoveResolution(int playerAmmo, int cpuAmmo, string playerMove, string cpuMove)
         {
             string message = "";
+            // Adjust cpu ammo based on move
             if (cpuMove == "SHOTGUN" && playerMove != "SHOTGUN") message = "Du förlorade!";
             if (cpuMove == "att SKJUTA") cpuAmmo--;
             else if (cpuMove == "att LADDA") cpuAmmo++;
             else if (cpuMove == "SHOTGUN") cpuAmmo += -3;
+
+            // Adjust player ammo based on move
             if (playerMove == "att SKJUTA")
             {
                 playerAmmo--;
