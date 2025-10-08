@@ -83,7 +83,9 @@ namespace Shotgun
         // AI: Use methods to make a move
         public static string CpuMove(int cpuAmmo, int playerAmmo)
         {
-            return CpuMoveChoice(CalculateWeight(MoveCalculator(cpuAmmo, playerAmmo)));
+            int move = MoveCalculator(cpuAmmo, playerAmmo);
+            int[] weights = CalculateWeight(move);
+            return CpuMoveChoice(weights);
         }
     }
 }
